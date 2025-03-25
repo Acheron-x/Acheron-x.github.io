@@ -22,8 +22,8 @@
 title: Your awesome title
 email: haha@example.com
 description: I guess this is a description?
-baseurl: https://www.acheron.icu/
-twitter_username: jekyllrb
+url: https://www.acheron.icu
+baseurl: ""
 github_username:  jekyll
 
 # Build settings
