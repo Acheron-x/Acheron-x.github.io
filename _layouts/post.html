@@ -1,0 +1,403 @@
+<!DOCTYPE html><title>Blog | {{ page.title }} - {{ page.subtitle }}</title>
+
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ page.title }} - {{ page.subtitle }}">
+    <meta name="author" content="{{ page.author }}">
+
+    
+    <!-- <link href="{{ site.baseurl }}favicon.ico" mce_href="{{ site.baseurl }}favicon.ico" rel="bookmark" type="image/x-icon" />
+    <link href="{{ site.baseurl }}favicon.ico" mce_href="{{ site.baseurl }}favicon.ico" rel="icon" type="image/x-icon" />
+    <link href="{{ site.baseurl }}favicon.ico" mce_href="{{ site.baseurl }}favicon.ico" rel="shortcut icon" type="image/x-icon" /> -->
+
+    <!-- Material Design Lite -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <!-- <link href="{{ site.baseurl }}css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ site.baseurl }}css/clean-blog.css" rel="stylesheet">
+    <link href="{{ site.baseurl }}css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    
+    <style>
+        :root {
+            --theme-color: #fec0cb;
+            --dark-bg: #1e212b;
+            --code-bg: #282a36;
+            --light-bg: #f5f5f5;
+            --text-color: #333;
+        }
+        
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+            background-color: var(--light-bg);
+        }
+        
+        .page-content {
+            display: flex;
+            flex: 1;
+        }
+        
+        .toc-sidebar {
+            width: 260px;
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        
+        .toc-wrapper {
+            padding: 0 15px;
+        }
+        
+        .toc-title {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--theme-color);
+        }
+        
+        .toc-nav {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .toc-nav li {
+            margin-bottom: 10px;
+        }
+        
+        .toc-nav a {
+            color: #ddd;
+            text-decoration: none;
+            display: block;
+            padding: 8px 10px;
+            border-left: 3px solid transparent;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .toc-nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .toc-nav a.active {
+            border-left: 3px solid var(--theme-color);
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--theme-color);
+        }
+        
+        .toc-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #777;
+            margin-right: 8px;
+        }
+        
+        .toc-nav a.active .toc-indicator {
+            background-color: var(--theme-color);
+        }
+        
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .post-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--theme-color);
+        }
+        
+        .post-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .post-meta {
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        .post-meta .tag {
+            display: inline-block;
+            background-color: var(--theme-color);
+            color: #333;
+            padding: 2px 8px;
+            margin-right: 5px;
+            font-size: 0.8rem;
+            border-radius: 3px;
+        }
+        
+        /* Code block styling */
+        pre {
+            background-color: var(--code-bg);
+            color: #f8f8f2;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-left: 3px solid var(--theme-color);
+        }
+        
+        pre code {
+            font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', monospace;
+            font-size: 0.9rem;
+            background-color: transparent;
+            padding: 0;
+            border: none;
+        }
+        
+        code {
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+            background-color: #f0f0f0;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        
+        /* Syntax highlighting */
+        .keyword, .let, .new {
+            color: #ff79c6;
+        }
+        
+        .function {
+            color: #50fa7b;
+        }
+        
+        .string {
+            color: #f1fa8c;
+        }
+        
+        .comment {
+            color: #6272a4;
+        }
+        
+        .number {
+            color: #bd93f9;
+        }
+        
+        .operator {
+            color: #ff79c6;
+        }
+        
+        .parameter {
+            color: #8be9fd;
+        }
+        
+        /* Blockquote styling */
+        blockquote {
+            border-left: 4px solid var(--theme-color);
+            padding: 10px 20px;
+            margin: 20px 0;
+            background-color: rgba(254, 192, 203, 0.1);
+        }
+        
+        /* Mobile optimization */
+        @media (max-width: 768px) {
+            .page-content {
+                flex-direction: column;
+            }
+            
+            .toc-sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                order: 2;
+            }
+            
+            .main-content {
+                order: 1;
+            }
+            
+            .toc-wrapper {
+                padding: 0 20px;
+            }
+        }
+        
+        /* MDL layout fix */
+        .mdl-layout__container {
+            position: relative;
+        }
+        
+        .mdl-layout {
+            width: auto;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    {% include header.html %}
+    
+    <div class="page-content mdl-layout__content">
+        <!-- TOC Sidebar -->
+        <div class="toc-sidebar">
+            <div class="toc-wrapper">
+                <h3 class="toc-title">Contents</h3>
+                <ul class="toc-nav" id="toc">
+                    <!-- Generated content will go here -->
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="post-header">
+                <h1 class="post-title">{{ page.title }}</h1>
+                <div class="post-meta">
+                    <span>{{ page.date | date: "%Y-%m-%d" }}</span>
+                    {% if page.tags %}
+                        {% for tag in page.tags %}
+                        <span class="tag">{{ tag }}</span>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+            
+            <div class="post-content">
+                {{ content }}
+            </div>
+            
+            <hr>
+            
+            
+        </div>
+    </div>
+
+    
+   
+    
+    <!-- TOC Generation and Handling -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Generate table of contents
+            var headings = document.querySelectorAll('.post-content h1, .post-content h2, .post-content h3, .post-content h4');
+            var toc = document.getElementById('toc');
+            
+            if (headings.length > 0) {
+                headings.forEach(function(heading, index) {
+                    // Set ID if not present
+                    if (!heading.id) {
+                        heading.id = 'heading-' + index;
+                    }
+                    
+                    // Create list item
+                    var li = document.createElement('li');
+                    var a = document.createElement('a');
+                    var indicator = document.createElement('span');
+                    
+                    indicator.className = 'toc-indicator';
+                    a.appendChild(indicator);
+                    a.href = '#' + heading.id;
+                    a.innerHTML += heading.textContent;
+                    
+                    // Add padding based on heading level
+                    if (heading.tagName === 'H1') {
+                        a.style.paddingLeft = '10px';
+                    } else if (heading.tagName === 'H2') {
+                        a.style.paddingLeft = '20px';
+                    } else if (heading.tagName === 'H3') {
+                        a.style.paddingLeft = '30px';
+                    } else if (heading.tagName === 'H4') {
+                        a.style.paddingLeft = '40px';
+                    }
+                    
+                    li.appendChild(a);
+                    toc.appendChild(li);
+                });
+                
+                // Active state handling
+                function updateActiveHeading() {
+                    var scrollPosition = window.scrollY;
+                    
+                    // Find the current heading
+                    for (var i = headings.length - 1; i >= 0; i--) {
+                        if (scrollPosition >= headings[i].offsetTop - 100) {
+                            // Remove active class from all links
+                            var links = document.querySelectorAll('.toc-nav a');
+                            links.forEach(function(link) {
+                                link.classList.remove('active');
+                            });
+                            
+                            // Add active class to current link
+                            var activeLink = document.querySelector('.toc-nav a[href="#' + headings[i].id + '"]');
+                            if (activeLink) {
+                                activeLink.classList.add('active');
+                            }
+                            
+                            break;
+                        }
+                    }
+                }
+                
+                // Update active heading on scroll
+                window.addEventListener('scroll', updateActiveHeading);
+                updateActiveHeading();
+            }
+            
+            // Smooth scrolling for table of contents
+            document.querySelectorAll('.toc-nav a').forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    var targetId = this.getAttribute('href').substring(1);
+                    var targetElement = document.getElementById(targetId);
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+    
+    <!-- Code highlighting -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simple code highlighting
+            document.querySelectorAll('pre code').forEach(function(codeBlock) {
+                var html = codeBlock.innerHTML;
+                
+                // Keywords
+                html = html.replace(/\b(let|const|var|function|return|if|else|for|while|do|switch|case|break|continue|new|class|this|import|export|from|as|async|await|try|catch|finally|throw|typeof|instanceof|in|of|null|undefined|true|false)\b/g, '<span class="keyword">$1</span>');
+                
+                // Functions
+                html = html.replace(/(\w+)(?=\s*\()/g, '<span class="function">$1</span>');
+                
+                // Strings
+                html = html.replace(/(["'])(.*?)\1/g, '<span class="string">$1$2$1</span>');
+                
+                // Comments
+                html = html.replace(/(\/\/.*$)/gm, '<span class="comment">$1</span>');
+                html = html.replace(/(\/\*[\s\S]*?\*\/)/g, '<span class="comment">$1</span>');
+                
+                // Numbers
+                html = html.replace(/\b(\d+)\b/g, '<span class="number">$1</span>');
+                
+                // Operators
+                html = html.replace(/([+\-*/%=<>&|^!~?:]+)/g, '<span class="operator">$1</span>');
+                
+                codeBlock.innerHTML = html;
+            });
+        });
+    </script>
+</body>
+</html>
