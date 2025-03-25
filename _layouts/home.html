@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Default page of the blog">
+    <meta name="author" content="Acheron">
+    <title>Homepage</title>
+
+    <!--css files-->
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-red.min.css"/>
+    <link href="https://use.fontawesome.com/releases/v5.0.2/css/fontawesome.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.2/css/brands.css" rel="stylesheet">
+
+    <!--js files-->
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+    <style>
+        .demo-layout-transparent {
+            background: url('{{ site.cdn }}img/site/home.png') center / cover;
+        }
+        
+    </style>
+
+</head>
+<body>
+    <div class="demo-layout-transparent mdl-layout mdl-js-layout">
+        <!-- Header section - You'll need to create header-v3.html in your _includes folder -->
+        {% include header.html %}
+        
+        <main class="mdl-layout__content">
+            <!-- Your content goes here -->
+             <h1>Hello World!!!</h1>
+        </main>
+    </div>
+
+    
+</body>
+</html>
