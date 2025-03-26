@@ -38,6 +38,13 @@ cdn: http://127.0.0.1:4000/
 # theme: minima
 plugins:
   - jekyll-feed
+    - jemoji
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 
 # Exclude from processing.
 # The following items will not be processed, by default.
