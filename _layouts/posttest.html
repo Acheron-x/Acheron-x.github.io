@@ -103,7 +103,7 @@
                     {% if page.toc %}
                     <div class="custom-toc">
                         <h4 style="color: #fec0cb !important;">Contents</h4>
-                        {{ content | toc_only }}
+                        {% include toc.html html=content class="section-nav" %}
                     </div>
                     {% endif %}
                     
