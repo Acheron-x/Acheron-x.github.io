@@ -1,15 +1,28 @@
-/* TOC (Table of Contents) Styling */
-.custom-toc {
-    position: fixed;      /* Fixed position on the page */
-    left: 20px;           /* Position from left edge */
-    top: 100px;           /* Position from top */
-    width: 200px;         /* Width of TOC */
-    max-height: 80vh;     /* Maximum height */
-    overflow-y: auto;     /* Enable scrolling for long TOCs */
-    padding: 15px 15px 15px 0; /* Remove padding on left */
-    background: transparent; /* Completely transparent background */
-    z-index: 100;         /* Ensure TOC stays above other content */
-    border: none;         /* No border */
+/* Main container layout */
+.post-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* Content area styling */
+  .post-content {
+    width: 100%;
+  }
+  
+  /* TOC (Table of Contents) Styling */
+  .custom-toc {
+    position: absolute; /* Change to absolute positioning */
+    left: -250px;       /* Move TOC to the left of the content */
+    top: 0;             /* Align with the top of post-container */
+    width: 200px;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 15px 15px 15px 0;
+    background: transparent;
+    z-index: 100;
+    border: none;
   }
   
   /* Remove any vertical lines or separators */
@@ -66,10 +79,7 @@
     box-shadow: none !important;
   }
   
-  /* Adjust main content to accommodate TOC */
-  .post-content {
-    margin-left: 230px; /* Push content right to make room for TOC */
-  }
+
   
   /* Hide all vertical lines and decorative elements */
   .custom-toc::after,
@@ -84,18 +94,14 @@
     background: transparent !important;
   }
   
-  /* Proper responsive adjustments */
-  @media (max-width: 1200px) {
+/* Media query for responsive design */
+@media (max-width: 1350px) {
     .custom-toc {
       position: static;
       width: 100%;
-      max-width: 100%; 
+      max-width: 100%;
       margin-bottom: 20px;
       border-bottom: 1px solid #eee;
       padding-bottom: 15px;
-    }
-    
-    .post-content {
-      margin-left: 0;
     }
   }
