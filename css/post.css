@@ -178,53 +178,9 @@ a:hover, a:focus {
 }
 
 /* Code blocks */
-pre {
-  background-color: var(--code-bg) !important; /* Dark background for code blocks */
-  border-radius: 5px;
-  padding: 1.27rem;
-  overflow-x: auto;
-  margin: 1.8rem 0;
-  position: relative;
-}
 
-pre code {
-  color: #e6e6e6;
-  background: transparent;
-  padding: 0;
-  font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
-  font-size: 1.05rem; /* Larger code font */
-}
 
-/* Add language tag for code blocks */
-pre::before {
-  content: attr(data-lang);
-  position: absolute;
-  top: 0;
-  right: 0;
-  color: var(--primary-color);
-  font-size: 0.85rem;
-  background-color: rgba(40, 44, 52, 0.8);
-  padding: 0.3rem 0.8rem;
-  border-bottom-left-radius: 5px;
-}
 
-/* Properly color syntax highlighting elements (pink code highlighting overrides) */
-.highlighter-rouge pre.highlight {
-  background-color: var(--code-bg) !important;
-}
-
-.highlight, .highlighter-rouge {
-  background-color: transparent;
-}
-
-.highlight pre, .highlighter-rouge pre {
-  background-color: var(--code-bg) !important;
-}
-
-/* Make sure Rouge code blocks don't get pink background */
-.highlight .k, .highlight .nt, .highlight .kd, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
-  color: #c678dd !important; /* Keep native color for keywords */
-}
 
 /* Inline code */
 :not(pre) > code {
