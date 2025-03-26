@@ -12,6 +12,7 @@ gem "github-pages", group: :jekyll_plugins
 # Keep your Jekyll plugins
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
+  gem 'jemoji'
 end
 
 # Keep platform-specific gems

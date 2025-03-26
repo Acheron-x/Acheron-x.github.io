@@ -1,0 +1,548 @@
+/* 
+* Main CSS for Jekyll Blog
+* Author: Acheron
+*/
+
+/* ======= Font Imports ======= */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+/* ======= Base Styles ======= */
+:root {
+  --primary-color: #fec0cb;
+  --darker-pink:#ce2544;
+  --text-color: #333;
+  --light-gray: #f8f9fa;
+  --medium-gray: #e9ecef;
+  --dark-gray: #212529;
+  --code-bg: #282c34;
+  --inline-code-bg: #e2e8f0; /* Darker background for inline code */
+  --blockquote-bg: #fff;
+  --blockquote-text: #666; /* Slight grey font for blockquote content */
+  --blockquote-marks: #e9a2ad; /* Darker pink for quote marks */
+  --meta-color: #757575;
+  --hover-color: #e9a2ad;
+  --table-highlight: #e6f2ff;
+}
+
+html {
+  font-size: 18px; /* Base font size */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Roboto', 'Noto Sans SC', sans-serif;
+  line-height: 1.7;
+  color: var(--text-color);
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+  font-size: 1.05rem;
+}
+
+/* Chinese text specific styling */
+:lang(zh), 
+.chinese {
+  font-family: 'Noto Sans SC', 'Roboto', sans-serif;
+  line-height: 1.8;
+}
+
+/* ======= Typography ======= */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: none; /* Remove underlines from all headings */
+}
+
+h1 {
+  font-size: 3.8rem !important; /* Keep this large for main titles */
+}
+
+h2 {
+  font-size: 3.2rem !important;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+/* Remove pink underline for h2 */
+h2::after {
+  display: none; /* Hide the underline */
+}
+
+h3 {
+  font-size: 2.8rem !important;
+}
+
+h4 {
+  font-size: 2.4rem !important;
+}
+
+h5 {
+  font-size: 2.0rem !important;
+}
+
+h6 {
+  font-size: 1.7rem !important;
+}
+
+p {
+  font-size: 1.7rem !important;
+  line-height: 2.3rem !important;
+  margin-bottom: 3rem !important;
+}
+
+li, dt, dd {
+  font-size: 1.7rem !important;
+  margin-bottom: 0.6rem;
+}
+
+li li {
+  font-size: 1em !important;
+}
+
+
+td, th {
+  font-size: 1.4rem !important;
+  margin-bottom: 0.5rem;
+}
+
+/* ======= Links ======= */
+a {
+  color: #fec0cb;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border-bottom: none;
+}
+
+a:hover, a:focus {
+  color: var(--hover-color);
+  text-decoration: underline; /* Add underline only on hover */
+}
+
+/* ======= Header Styles ======= */
+.post-header {
+  margin-bottom: 2.5rem;
+}
+
+.post-title {
+  font-size: 2.8rem;
+  margin-bottom: 0.6rem;
+  border-bottom: none;
+}
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.2rem;
+  font-size: 1rem;
+  margin-bottom: 1.8rem;
+}
+
+.post-date, .post-tags, .post-categories {
+  display: flex;
+  align-items: center;
+  color: var(--meta-color);
+}
+
+.post-date i, .post-tags i, .post-categories i {
+  color: var(--primary-color);
+  margin-right: 0.35rem;
+}
+
+.post-category, .post-tag {
+  background-color: #fff;
+  color: var(--meta-color);
+  padding: 3px 10px;
+  margin-right: 6px;
+  font-size: 0.9rem;
+  border: 1px solid var(--meta-color);
+  border-radius: 3px;
+}
+
+/* ======= Content Styles ======= */
+.post-content {
+  margin-bottom: 3.5rem;
+}
+
+/* Ensure post content paragraphs have the right size */
+.post-content p {
+  font-size: 1.7rem !important;
+}
+
+/* Code blocks */
+pre {
+  background-color: var(--code-bg) !important; /* Dark background for code blocks */
+  border-radius: 5px;
+  padding: 1.2rem;
+  overflow-x: auto;
+  margin: 1.8rem 0;
+  position: relative;
+}
+
+pre code {
+  color: #e6e6e6;
+  background: transparent;
+  padding: 0;
+  font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+  font-size: 1.05rem; /* Larger code font */
+}
+
+/* Add language tag for code blocks */
+pre::before {
+  content: attr(data-lang);
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: var(--primary-color);
+  font-size: 0.85rem;
+  background-color: rgba(40, 44, 52, 0.8);
+  padding: 0.3rem 0.8rem;
+  border-bottom-left-radius: 5px;
+}
+
+/* Properly color syntax highlighting elements (pink code highlighting overrides) */
+.highlighter-rouge pre.highlight {
+  background-color: var(--code-bg) !important;
+}
+
+.highlight, .highlighter-rouge {
+  background-color: transparent;
+}
+
+.highlight pre, .highlighter-rouge pre {
+  background-color: var(--code-bg) !important;
+}
+
+/* Make sure Rouge code blocks don't get pink background */
+.highlight .k, .highlight .nt, .highlight .kd, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #c678dd !important; /* Keep native color for keywords */
+}
+
+/* Inline code */
+:not(pre) > code {
+  background-color: var(--inline-code-bg) !important;
+  color: #0a0f16;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  font-family: 'Work Sans', 'Roboto Mono', monospace;
+  font-size: 1.4rem;
+  font-weight: 500; 
+}
+
+/* ======= Blockquotes ======= */
+blockquote {
+  background-color: var(--blockquote-bg); /* White background */
+  border-left: none;
+  margin: 1.8rem 0;
+  padding: 1.2rem 1.8rem;
+  color: var(--blockquote-text);
+  font-style: normal !important;
+  position: relative;
+  box-shadow: none;
+  white-space: normal !important;
+}
+
+/* Ensure blockquote paragraphs have consistent font size */
+blockquote p {
+  font-size: 1.7rem !important;
+  white-space: normal !important;
+  word-wrap: break-word !important;
+}
+
+blockquote::before {
+    content: "“";
+    position: absolute;
+    color: var(--blockquote-marks);
+    left: 0.5rem;
+    top: -1rem;
+    font-size: 3rem;
+    font-family: Georgia, serif;
+}
+
+blockquote::after {
+    content: "”";
+    position: absolute;
+    color: var(--blockquote-marks);
+    right: 0.5rem;
+    bottom: -1rem;
+    font-size: 3rem;
+    font-family: Georgia, serif;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+blockquote cite {
+  display: block;
+  text-align: right;
+  font-style: normal;
+  font-size: 1.4rem;
+  margin-top: 0.6rem;
+  margin-right: 2rem;
+  color: var(--blockquote-text);
+}
+
+blockquote blockquote {
+  margin-left: 2rem;
+  border-left: none;
+}
+
+/* ======= Tables ======= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2.2rem 0;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+th, td {
+  padding: 0.85rem 1.2rem;
+  text-align: left;
+  border-bottom: 1px solid var(--medium-gray);
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--light-gray);
+}
+
+tbody tr:hover {
+  background-color: var(--table-highlight); /* Light blue highlight instead of pink */
+}
+
+/* ======= Lists ======= */
+ul, ol {
+  margin: 1.8rem 0;
+  padding-left: 2.2rem;
+}
+
+/* Force List Items */
+ul li, ol li {
+  font-size: 1.7rem !important;
+  margin-bottom: 0.6rem;
+}
+
+/* Fix for task lists */
+ul.task-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.task-list-item {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.task-list-item input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+/* Definition Lists */
+dl {
+  margin: 1.8rem 0;
+}
+
+dt {
+  font-weight: bold;
+  color: var(--dark-gray);
+}
+
+dd {
+  margin-left: 2.2rem;
+  margin-bottom: 1.2rem;
+}
+
+/* ======= Images ======= */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  display: block;
+  margin: 1.8rem auto;
+}
+
+figure {
+  margin: 2.2rem 0;
+  text-align: center;
+}
+
+figcaption {
+  color: var(--meta-color);
+  font-size: 0.95rem;
+  margin-top: 0.6rem;
+}
+
+/* ======= Horizontal Rule ======= */
+hr {
+  border: 0;
+  height: 1px;
+  background-color: var(--primary-color);
+  margin: 2.2rem 0;
+}
+
+/* ======= Footnotes ======= */
+.footnotes {
+  border-top: 2px solid var(--primary-color);
+  margin-top: 3.5rem;
+  padding-top: 1.8rem;
+}
+
+.footnotes ol {
+  color: var(--meta-color);
+}
+
+.footnotes li, .footnotes li p {
+  margin-bottom: 0.6rem;
+  font-size: 1.2rem !important;
+}
+
+a.footnote, a.reversefootnote {
+  color: var(--darker-pink);
+  padding: 0 3px;
+  text-decoration: none;
+  font-size: 0.85rem !important;
+}
+
+/* ======= Highlight ======= */
+mark, .highlight {
+  background-color: #fff; /* Clean background as requested */
+  color: var(--text-color); /* Regular text color */
+  padding: 0.8rem;
+  border-radius: 0; /* Remove border radius */
+  display: block; /* Make it a block as requested */
+  margin: 1.5rem 0;
+  border-left: 4px solid var(--primary-color); /* Keep the line aside as requested */
+  box-shadow: none; /* Remove box shadow */
+}
+
+/* Fix for inline mark tags */
+p mark {
+  background-color: #ffffcc; /* Light yellow background for inline marks */
+  display: inline; /* Keep as inline */
+  padding: 0 3px; /* Smaller padding for inline */
+  border-left: none; /* No left border for inline */
+}
+
+/* ======= Emoji ======= */
+.emoji {
+  display: inline-block; /* Make emoji inline */
+  vertical-align: middle;
+  font-size: 1.7rem !important; /* Larger emoji size */
+  line-height: 1;
+  margin: 0 0.1rem; /* Small horizontal margins */
+}
+
+/* ======= Navigation & Header ======= */
+.site-header {
+  background-color: #fff;
+  padding: 1rem 0;
+  border-bottom: none;
+}
+
+.site-header a {
+  color: var(--text-color);
+  font-size: 1.1rem;
+}
+
+.site-header a:hover {
+  color: var(--primary-color);
+}
+
+/* ======= Post Navigation ======= */
+.post-footer {
+  margin-top: 3.5rem;
+}
+
+.mdl-button {
+  text-transform: none;
+  background-color: #fff;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  font-size: 1rem;
+}
+
+.mdl-button:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.mdl-button .material-icons {
+  vertical-align: middle;
+}
+
+/* ======= Author Card ======= */
+.author-info {
+  margin-top: 2.2rem;
+  margin-bottom: 2.2rem;
+  width: 100%;
+}
+
+.mdl-card__title {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.mdl-card__supporting-text {
+  font-size: 1.05rem;
+}
+
+/* ======= Related Posts ======= */
+.related-posts {
+  margin-top: 2.2rem;
+}
+
+.related-posts h3 {
+  font-size: 3.8rem !important;
+}
+
+.related-posts a {
+  /* color: var(--primary-color); */
+  font-size: 1.8rem !important;
+}
+
+.related-posts a:hover {
+  color: var(--hover-color);
+}
+
+/* Fix for display math only */
+.katex-display {
+    font-size: 1.2em;
+    display: block !important;
+    margin: 3em 0 !important;
+    text-align: center !important;
+    overflow: visible !important;  /* Allow equation to extend if needed */
+    max-width: none !important;    /* Don't constrain width */
+  }
+
+
+/* ======= Responsive Adjustments ======= */
+@media (max-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+  
+  .post-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+  
+  pre {
+    padding: 0.85rem;
+  }
+  
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+}
