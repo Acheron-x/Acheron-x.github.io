@@ -39,6 +39,7 @@ cdn: http://127.0.0.1:4000/
 plugins:
   - jekyll-feed
   - jemoji
+  - jekyll-toc
 
 markdown: kramdown
 highlighter: rouge

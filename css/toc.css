@@ -1,0 +1,101 @@
+/* TOC (Table of Contents) Styling */
+.custom-toc {
+    position: fixed;      /* Fixed position on the page */
+    left: 20px;           /* Position from left edge */
+    top: 100px;           /* Position from top */
+    width: 200px;         /* Width of TOC */
+    max-height: 80vh;     /* Maximum height */
+    overflow-y: auto;     /* Enable scrolling for long TOCs */
+    padding: 15px 15px 15px 0; /* Remove padding on left */
+    background: transparent; /* Completely transparent background */
+    z-index: 100;         /* Ensure TOC stays above other content */
+    border: none;         /* No border */
+  }
+  
+  /* Remove any vertical lines or separators */
+  .custom-toc::after,
+  .custom-toc::before {
+    display: none !important;
+  }
+  
+  /* TOC Header */
+  .custom-toc h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  /* Pink Links (#fec0cb) for TOC only */
+  .custom-toc a {
+    color: #6B5B95 !important;
+    text-decoration: none;
+    display: block;
+    padding: 3px 0;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    background: transparent !important;
+  }
+  
+  .custom-toc a:hover {
+    padding-left: 3px;
+  }
+  
+  /* Active link - indicates current section being read */
+  .custom-toc a.active {
+    color: #ff8da1 !important; /* Darker pink for active section */
+    font-weight: bold;
+    border-left: 2px solid #ff8da1;
+    padding-left: 5px;
+  }
+  
+  /* Indentation for different heading levels */
+  .custom-toc ul {
+    list-style-type: none;
+    padding-left: 10px;
+    margin: 0;
+    background: transparent !important;
+  }
+  
+  /* Reset any unwanted styles from the theme */
+  .custom-toc ul,
+  .custom-toc li,
+  .custom-toc .section-nav {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Adjust main content to accommodate TOC */
+  .post-content {
+    margin-left: 230px; /* Push content right to make room for TOC */
+  }
+  
+  /* Hide all vertical lines and decorative elements */
+  .custom-toc::after,
+  .custom-toc::before,
+  .custom-toc *::after,
+  .custom-toc *::before {
+    display: none !important;
+  }
+  
+  /* Force transparency on all elements */
+  .custom-toc * {
+    background: transparent !important;
+  }
+  
+  /* Proper responsive adjustments */
+  @media (max-width: 1200px) {
+    .custom-toc {
+      position: static;
+      width: 100%;
+      max-width: 100%; 
+      margin-bottom: 20px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 15px;
+    }
+    
+    .post-content {
+      margin-left: 0;
+    }
+  }

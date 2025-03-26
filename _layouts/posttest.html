@@ -48,6 +48,7 @@
 
 
     <link rel="stylesheet" href="{{ site.cdn }}css/syntax_monokai.css">
+    <link rel="stylesheet" href="{{ site.cdn }}css/toc.css">
 
 
 
@@ -97,10 +98,19 @@
 
                 <hr>
 
-
-                <!-- Post Content -->
-                <div class="post-content mdl-typography--body-1">
-                    {{ content }}
+                <!-- Side Bar by Toc -->
+                <div class="post-container">
+                    {% if page.toc %}
+                    <div class="custom-toc">
+                        <h4 style="color: #fec0cb !important;">Contents</h4>
+                        {{ content | toc_only }}
+                    </div>
+                    {% endif %}
+                    
+                    <!-- Post Content -->
+                    <div class="post-content mdl-typography--body-1">
+                        {{ content }}
+                    </div>
                 </div>
                 
                 <!-- Post Footer -->
@@ -165,6 +175,7 @@
 
 
     <!-- <script src="{{ site.cdn }}js/scroll.js"></script> -->
+    <script src="{{ site.cdn }}js/content.js"></script>
 
 </body>
 </html>
