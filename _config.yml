@@ -25,7 +25,7 @@ description: I guess this is a description?
 
 baseurl: /
 url: https://www.acheron.icu/
-paginate: 1
+paginate: 10
 
 
 # github_username:  jekyll
