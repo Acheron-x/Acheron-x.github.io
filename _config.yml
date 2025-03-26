@@ -30,8 +30,8 @@ paginate: 10
 
 # github_username:  jekyll
 
-cdn: http://127.0.0.1:4000/
-# cdn: https://www.acheron.icu/
+# cdn: http://127.0.0.1:4000/
+cdn: https://www.acheron.icu/
 
 # Build settings
 
