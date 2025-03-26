@@ -40,6 +40,12 @@ body {
   font-size: 1.05rem;
 }
 
+.mdl-layout__drawer-button i {
+    color: #757575 !important;
+    font-size: 24px;
+    margin: 8px 12px;
+  }
+
 /* Chinese text specific styling */
 :lang(zh), 
 .chinese {
@@ -83,17 +89,17 @@ h5 {
 }
 
 h6 {
-  font-size: 1.5rem !important;
+  font-size: 1.2rem !important;
 }
 
 p {
-  font-size: 1.5rem !important;
+  font-size: 1.2rem !important;
   line-height: 2.3rem !important;
   margin-bottom: 3rem !important;
 }
 
 li, dt, dd {
-  font-size: 1.5rem !important;
+  font-size: 1.2rem !important;
   margin-bottom: 0.6rem;
 }
 
@@ -168,7 +174,7 @@ a:hover, a:focus {
 
 /* Ensure post content paragraphs have the right size */
 .post-content p {
-  font-size: 1.5rem !important;
+  font-size: 1.2rem !important;
 }
 
 /* Code blocks */
@@ -246,7 +252,7 @@ blockquote {
 
 /* Ensure blockquote paragraphs have consistent font size */
 blockquote p {
-  font-size: 1.5rem !important;
+  font-size: 1.2rem !important;
   white-space: normal !important;
   word-wrap: break-word !important;
 }
@@ -327,7 +333,7 @@ ul, ol {
 
 /* Force List Items */
 ul li, ol li {
-  font-size: 1.5rem !important;
+  font-size: 1.2rem !important;
   margin-bottom: 0.6rem;
 }
 
@@ -437,7 +443,7 @@ p mark {
 .emoji {
   display: inline-block; /* Make emoji inline */
   vertical-align: middle;
-  font-size: 1.5rem !important; /* Larger emoji size */
+  font-size: 1.2rem !important; /* Larger emoji size */
   line-height: 1;
   margin: 0 0.1rem; /* Small horizontal margins */
 }
