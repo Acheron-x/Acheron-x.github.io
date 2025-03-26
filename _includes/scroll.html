@@ -1,0 +1,24 @@
+<script type="text/javascript">
+    // Function to read a cookie value
+    function readCookie(name) {
+      return (document.cookie.match('(^|; )' + name + '=([^;]*)') || 0)[2];
+    }
+    
+    // When page loads
+    window.onload = function() {
+      // Get saved scroll position from cookie
+      var scrollPos = readCookie('scrollPos');
+      if (scrollPos) {
+        // Scroll to the saved position
+        window.scrollTo(0, parseInt(scrollPos));
+        console.log("Restored position:", scrollPos);
+      }
+    };
+    
+    // Save position when user scrolls
+    window.onscroll = function() {
+      // Set a cookie with the current scroll position
+      document.cookie = 'scrollPos=' + window.pageYOffset;
+      console.log("Saved position:", window.pageYOffset);
+    };
+    </script>
