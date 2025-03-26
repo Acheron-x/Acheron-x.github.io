@@ -38,7 +38,7 @@ cdn: http://127.0.0.1:4000/
 # theme: minima
 plugins:
   - jekyll-feed
-    - jemoji
+  - jemoji
 
 markdown: kramdown
 highlighter: rouge
