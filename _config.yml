@@ -39,7 +39,7 @@ cdn: https://www.acheron.icu/
 plugins:
   - jekyll-feed
   - jemoji
-  - jekyll-toc
+  # - jekyll-toc
 
 markdown: kramdown
 highlighter: rouge
