@@ -2,7 +2,7 @@
 .custom-toc {
   position: fixed; /* Fixed positioning */
   left: 60px;         /* Align to the left edge */
-  top: 200px;          /* Start from the top */
+  top: 170 px;          /* Start from the top */
   width: 180px;    /* Width of the sidebar */
   height: 70vh; 
   overflow-y: auto;/* Allow scrolling if content is too long */
@@ -21,7 +21,7 @@
 #toc-title{
   position: fixed; /* Fixed positioning */
   left: 90px;         /* Align to the left edge */
-  top: 150px;          /* Start from the top */
+  top: 120px;          /* Start from the top */
 
 }
 /* Make room for the TOC in the main content */
