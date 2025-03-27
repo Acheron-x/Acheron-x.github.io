@@ -101,17 +101,18 @@
                 <!-- Side Bar by Toc -->
                 <div class="post-container">
                     {% if page.toc %}
-                    <div class="custom-toc">
-                        <h4 style="color: #fec0cb !important;">Contents</h4>
-                        {% include toc.html html=content class="section-nav" %}
+                    <div class="custom-toc" id="tableOfContents">
+                    <h4 id="toc-title" style="color: #fec0cb !important;">Contents</h4>
+                    {% include toc.html html=content class="section-nav" %}
                     </div>
                     {% endif %}
                     
                     <!-- Post Content -->
                     <div class="post-content mdl-typography--body-1">
-                        {{ content }}
+                    {{ content }}
                     </div>
                 </div>
+                
                 
                 <!-- Post Footer -->
                 <div class="post-footer">
@@ -175,7 +176,7 @@
 
 
     <script src="{{ site.cdn }}js/scroll.js"></script>
-    <!-- <script src="{{ site.cdn }}js/content.js"></script> -->
+    <script src="{{ site.cdn }}js/content.js"></script>
 
 </body>
 </html>

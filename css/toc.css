@@ -1,107 +1,99 @@
-/* Main container layout */
-.post-container {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-  
-  /* Content area styling */
-  .post-content {
-    width: 100%;
-  }
-  
-  /* TOC (Table of Contents) Styling */
-  .custom-toc {
-    position: absolute; /* Change to absolute positioning */
-    left: -250px;       /* Move TOC to the left of the content */
-    top: 0;             /* Align with the top of post-container */
-    width: 200px;
-    max-height: 80vh;
-    overflow-y: auto;
-    padding: 15px 15px 15px 0;
-    background: transparent;
-    z-index: 100;
-    border: none;
-  }
-  
-  /* Remove any vertical lines or separators */
-  .custom-toc::after,
-  .custom-toc::before {
-    display: none !important;
-  }
-  
-  /* TOC Header */
-  .custom-toc h4 {
-    margin-top: 0;
-    margin-bottom: 15px;
-    font-size: 18px;
-    font-weight: bold;
-  }
-  
-  /* Pink Links (#fec0cb) for TOC only */
-  .custom-toc a {
-    color: #6B5B95 !important;
-    text-decoration: none;
-    display: block;
-    padding: 3px 0;
-    transition: all 0.2s ease;
-    font-size: 14px;
-    background: transparent !important;
-  }
-  
-  .custom-toc a:hover {
-    padding-left: 3px;
-  }
-  
-  /* Active link - indicates current section being read */
-  .custom-toc a.active {
-    color: #ff8da1 !important; /* Darker pink for active section */
-    font-weight: bold;
-    border-left: 2px solid #ff8da1;
-    padding-left: 5px;
-  }
-  
-  /* Indentation for different heading levels */
-  .custom-toc ul {
-    list-style-type: none;
-    padding-left: 10px;
-    margin: 0;
-    background: transparent !important;
-  }
-  
-  /* Reset any unwanted styles from the theme */
-  .custom-toc ul,
-  .custom-toc li,
-  .custom-toc .section-nav {
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-  }
-  
+/* TOC (Table of Contents) Styling */
+.custom-toc {
+  position: fixed; /* Fixed positioning */
+  left: 60px;         /* Align to the left edge */
+  top: 200px;          /* Start from the top */
+  width: 180px;    /* Width of the sidebar */
+  height: 70vh; 
+  overflow-y: auto;/* Allow scrolling if content is too long */
+  scrollbar-width: none; 
+  -ms-overflow-style: none;
+  padding: 0px;   /* Add some padding */
+  background: #fff;
+  /* border-right: 1px solid #eee;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05); */
+  z-index: 100;    /* Ensure it's above other content */
+}
+.custom-toc::-webkit-scrollbar{
+  display: none;
+}
 
-  
-  /* Hide all vertical lines and decorative elements */
-  .custom-toc::after,
-  .custom-toc::before,
-  .custom-toc *::after,
-  .custom-toc *::before {
-    display: none !important;
+#toc-title{
+  position: fixed; /* Fixed positioning */
+  left: 90px;         /* Align to the left edge */
+  top: 150px;          /* Start from the top */
+
+}
+/* Make room for the TOC in the main content */
+.post-container {
+  /* margin-left: 280px; */
+  padding: 20px;
+  max-width: none;    /* Remove any max-width limitation */
+}
+
+/* TOC Header */
+.custom-toc h4 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fec0cb !important; /* Pink header */
+}
+
+/* Links for TOC */
+.custom-toc a {
+  color: #6B5B95 !important;
+  text-decoration: none;
+  display: block;
+  padding: 3px 0;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  border-left: 2px solid transparent; /* For active state */
+  background: transparent !important;
+}
+
+.custom-toc a:hover {
+  padding-left: 5px;
+  color: #ff8da1 !important;
+}
+
+/* Active link - indicates current section being read */
+.custom-toc a.active {
+  color: #ff8da1 !important; /* Darker pink for active section */
+  font-weight: bold;
+  border-left: 2px solid #ff8da1;
+  padding-left: 5px;
+}
+
+/* Indentation for different heading levels */
+.custom-toc ul {
+  list-style-type: none;
+  padding-left: 10px;
+  margin: 0;
+  background: transparent !important;
+}
+
+/* Reset any unwanted styles from the theme */
+.custom-toc ul,
+.custom-toc li,
+.custom-toc .section-nav {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Force transparency on all elements */
+.custom-toc * {
+  background: transparent !important;
+}
+
+/* Media query for responsive design - hide TOC on small screens */
+@media (max-width: 1270px) {
+  .custom-toc {
+    display: none; /* Hide TOC completely on small screens */
   }
   
-  /* Force transparency on all elements */
-  .custom-toc * {
-    background: transparent !important;
+  .post-container {
+    margin-left: 0; /* Remove margin when TOC is hidden */
   }
-  
-/* Media query for responsive design */
-@media (max-width: 1350px) {
-    .custom-toc {
-      position: static;
-      width: 100%;
-      max-width: 100%;
-      margin-bottom: 20px;
-      border-bottom: 1px solid #eee;
-      padding-bottom: 15px;
-    }
-  }
+}
